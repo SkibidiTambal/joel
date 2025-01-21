@@ -1,4 +1,10 @@
 ﻿@page "/success"
 
+@* Daniel added this injection so we can use everwhere in project the PersonService Object *@
+@inject PersonService PersonService
+
 <h3>Form Submitted Successfully!</h3>
-<p>Your form has been submitted.</p>
+<p>Here are the values submitted by you!</p>
+
+<p>First Name: @PersonService.Person.FirstName</p>
+<p>Last Name: @PersonService.Person.LastName</p>
