@@ -1,5 +1,7 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BlazorAppDataBinding2
 {
@@ -29,6 +31,19 @@ namespace BlazorAppDataBinding2
             }
         }
 
-
+        public static string GetMd5Hash(string input)
+        {
+            using (var md5 = MD5.Create())
+            {
+                var inputBytes = Encoding.ASCII.GetBytes(input);
+                var hashBytes = md5.ComputeHash(inputBytes);
+                var sb = new StringBuilder();
+                foreach (var b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2")); // format as hexadecimal
+                }
+                return sb.ToString();
+            }
+        }
     }
 }
