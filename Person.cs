@@ -2,6 +2,8 @@
 {
     public class Person
     {
+        private int id;
+        
         private string email;
         
         private string password;
@@ -25,5 +27,6 @@
         public string Role { get => role; set => role = value; }
         public string Created_at { get => created_at; set => created_at = value; }
         public string Updated_at { get => updated_at; set => updated_at = value; }
+        public int Id { get => id; set => id = value; }
     }
 }
